@@ -1,17 +1,17 @@
 package com.restful.business;
 
-
-
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import com.restful.types.Person;
+
+// test bjg
 
 public class DataFetcher {
 
@@ -19,12 +19,17 @@ public class DataFetcher {
 		List<Person> personList = new ArrayList<Person>();
 		Connection connection = getRemoteConnection();
 		Statement statement = null;
-		ResultSet resultSet = null;		
+		ResultSet resultSet = null;
 		try {
+			System.out.println("todo # 1");
 			statement = connection.createStatement();
-			resultSet = statement.executeQuery("SELECT idtype, idgrouptype, namegrouptype, nametype from HappierHour.dbo.HHDBTypes");
+			System.out.println("todo # 2");
+			resultSet = statement
+					.executeQuery("SELECT idtype, idgrouptype, namegrouptype, nametype from HappierHour.dbo.HHDBTypes");
+			System.out.println("todo # 3");
 			System.out.println("reseultSet: " + resultSet.toString());
-			while(resultSet.next()){
+			while (resultSet.next()) {
+				System.out.println("todo # 4");
 				Person person = new Person();
 				isMockPerson(first, last, email, person);
 				person.setFirst(resultSet.getString("namegrouptype"));
@@ -34,7 +39,9 @@ public class DataFetcher {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println(e);
-		}	
+			System.out.println("todo # 6");
+		}
+		System.out.println("todo # 5");
 		return personList.get(0);
 	}
 
@@ -50,7 +57,8 @@ public class DataFetcher {
 	}
 
 	private static void isMockPerson(String first, String last, String email, Person person) {
-		if ("Nick".equalsIgnoreCase(first) && "Fury".equalsIgnoreCase(last) && "email@gmail.com".equalsIgnoreCase(email)) {
+		if ("Nick".equalsIgnoreCase(first) && "Fury".equalsIgnoreCase(last)
+				&& "email@gmail.com".equalsIgnoreCase(email)) {
 			person.setAge("50");
 			person.setEmail("email@gmail.com");
 			person.setPhone("123-123-1234");
@@ -59,9 +67,10 @@ public class DataFetcher {
 
 	private static Connection getRemoteConnection() {
 		if (System.getProperty("RDS_HOSTNAME") != null) {
-			System.out.println("System.getProperty(RDS_HOSTNAME) : " + System.getProperty("RDS_HOSTNAME"));
+			System.out.println(Calendar.getInstance().getTime() + " todo System.getProperty(RDS_HOSTNAME) : "
+					+ System.getProperty("RDS_HOSTNAME"));
 			try {
-				Class.forName("org.postgresql.Driver");
+				Class.forName("com.mysql.jdbc.Driver");
 				String dbName = System.getProperty("RDS_DB_NAME");
 				String userName = System.getProperty("RDS_USERNAME");
 				String password = System.getProperty("RDS_PASSWORD");
@@ -71,6 +80,7 @@ public class DataFetcher {
 						+ "&password=" + password;
 				System.out.println("JDBCURL  : " + jdbcUrl);
 				Connection con = DriverManager.getConnection(jdbcUrl);
+				System.out.println("todo # 10");
 				return con;
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
