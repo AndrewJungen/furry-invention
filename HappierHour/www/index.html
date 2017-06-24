@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="http://code.ionicframework.com/1.0.0/css/ionic.css" />
+	<script src="http://code.ionicframework.com/1.0.0/js/ionic.bundle.js"></script>
+<link rel="stylesheet"
+	href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-2.0.1.min.js"></script>
+<script
+	src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<meta http-equiv="Content-Security-Policy"
+	content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+<meta name="format-detection" content="telephone=no">
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="viewport"
+	content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<title>Happier Hour</title>
+</head>
+<body>
+	<div data-role="panel" id="panel-1">
+		<ul data-role="listview" id="listview-1">
+			<li><a href="#page-2">Splash</a></li>
+			<li><a href="#page-3">Business List</a></li>
+		</ul>
+	</div>
+	<div data-role="page" id="page-1">
+		<div data-role="header">
+			<h1>Happier Hour</h1>
+		</div>
+		<div data-role="content">
+			<h1>Login</h1>
+		</div>
+		<div data-role="content">
+			<label for="input-1">Email</label> <input id="input-1" name="Email"
+				placeholder="Email" autofocus="true" required="true" type="email" />
+		</div>
+		<div data-role="content">
+			<label for="input-2">Password</label> <input id="input-2"
+				name="Password" placeholder="Password" required="true"
+				type="password" />
+		</div>
+		<div data-role="content" align="center">
+			<a href="#page-2" id="button-2" class="ui-btn ui-btn-inline ui-corner-all">Go</a>
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="page-2">
+		<div data-role="header">
+			<a href="#panel-1" id="button-1"
+				class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">Menu</a>
+				<a href="#page-5" id="button-3" class="ui-btn ui-icon-gear ui-btn-icon-notext ui-corner-all">Gear</a>
+			<h1>Happier Hour</h1>
+		</div>
+		<div data-role="content" align="center">
+			<h1>Drinks</h1>
+		</div>
+	</div>
+	<div data-role="page" id="page-3">
+		<div data-role="header">
+			<a href="#" data-role="button" data-rel="back" data-icon="back" data-iconpos="notext">Back</a>
+			<a href="#page-6" id="button-4" class="ui-btn ui-icon-location ui-btn-icon-notext ui-corner-all">Map</a>
+			<h1>Business List</h1>
+		</div>
+		<div data-role="content">
+			<form class="ui-filterable">
+				<input data-type="search" id="searchForListview-1" />
+			</form>
+			<ul data-role="listview" id="businessList" data-filter="true"
+				data-input="#searchForListview-1">
+				<li><a href="#page-4">Business Name</a></li>
+				<li><a href="#page-4">Andrew's Bar</a></li>
+			</ul>
+		</div>
+	</div>
+	<div data-role="page" id="page-4">
+		<div data-role="header">
+			<a href="#" data-role="button" data-rel="back" data-icon="back" data-iconpos="notext">Back</a>
+			<h1>Business Information</h1>
+		</div>
+		<div data-role="content">
+			<h1>Business Name</h1>
+			<h4>Sunday Special</h4>
+			<h4>Monday Special</h4>
+			<h4>Tuesday Special</h4>
+			<h4>Wednesday Special</h4>
+			<h4>Thursday Special</h4>
+			<h4>Friday Special</h4>
+			<h4>Saturday Special</h4>
+		</div>
+	</div>
+	<div data-role="page" id="page-5">
+		<div data-role="header">
+			<a href="#" data-role="button" data-rel="back" data-icon="back" data-iconpos="notext">Back</a>
+			<h1>Settings</h1>
+		</div>
+		<div data-role="content">
+			<p>Settings goes here.</p>
+		</div>
+	</div>
+	<div data-role="page" id="page-6">
+		<div data-role="header">
+			<a href="#" data-role="button" data-rel="back" data-icon="back" data-iconpos="notext">Back</a>
+			<h1>Map View</h1>
+		</div>
+		<div data-role="content">
+			<p>Google Map API</p>
+		</div>
+	</div>
+	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
